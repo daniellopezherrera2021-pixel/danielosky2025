@@ -6,24 +6,43 @@ const totalPrice = document.getElementById('total-price');
 const buyBtn = document.getElementById('buy-btn');
 
 function updatePrice() {
-  const cpuPrice = parseInt(cpu.value);
-  const ramPrice = parseInt(ram.value);
-  const storagePrice = parseInt(storage.value);
-  const gpuPrice = parseInt(gpu.value);
-
+  const cpuPrice = parseInt(cpu.value)||0;
+  const ramPrice = parseInt(ram.value)||0;
+  const storagePrice = parseInt(storage.value)||0;
+  const gpuPrice = parseInt(gpu.value)||0;
   const total = cpuPrice + ramPrice + storagePrice + gpuPrice;
-  totalPrice.textContent = `$${total}`;
+  totalPrice.textContent = total.toLocaleString('es-ES') + ' €';
 }
 
-// Evento para actualizar cada vez que cambie una opción
-[cpu, ram, storage, gpu].forEach(select => {
-  select.addEventListener('change', updatePrice);
-});
+// add event listeners
+[cpu, ram, storage, gpu].forEach(el => el.addEventListener('change', updatePrice));
 
-// Calcular al cargar la página
+// init
 updatePrice();
 
-// Simulación del botón "comprar"
-buyBtn.addEventListener('click', () => {
-  alert(`Gracias por tu compra. Total: ${totalPrice.textContent}`);
+// Ripple effect on buy button
+buyBtn.classList.add('ripple');
+buyBtn.addEventListener('click', function(e){
+  // create ripple span
+  const rect = this.getBoundingClientRect();
+  const span = document.createElement('span');
+  const size = Math.max(rect.width, rect.height);
+  span.style.width = span.style.height = size + 'px';
+  span.style.left = (e.clientX - rect.left - size/2) + 'px';
+  span.style.top = (e.clientY - rect.top - size/2) + 'px';
+  this.appendChild(span);
+  // remove after animation
+  setTimeout(() => span.remove(), 700);
+
+  // small confirmation animation and message
+  this.style.pointerEvents = 'none';
+  const originalText = this.textContent;
+  this.textContent = 'Procesando...';
+  setTimeout(()=>{
+    this.textContent = '¡Gracias por tu compra!';
+    setTimeout(()=>{
+      this.textContent = originalText;
+      this.style.pointerEvents = '';
+    }, 1400);
+  }, 900);
 });
