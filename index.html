@@ -3,59 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iMac Azul - Proyecto Escolar</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Configurador de Ordenadores</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <nav>
-      <h1>iMac Azul</h1>
-      <button id="toggle-dark">🌙</button>
-    </nav>
+    <h1>Configura tu ordenador</h1>
   </header>
 
-  <main>
-    <section class="hero">
-      <h2>Chip M4. Rendimiento increíble.</h2>
-      <p>CPU de 8 núcleos, GPU de 8 núcleos, 16 GB de memoria, 256 GB de almacenamiento.</p>
+  <main class="container">
+    <section class="image-section">
+      <img id="pc-image" src="https://upload.wikimedia.org/wikipedia/commons/5/57/IMac_Pro_2017.svg" alt="Ordenador" />
     </section>
 
-    <section class="selector">
-      <h3>Elige tu color</h3>
-      <div class="colors">
-        <button data-color="azul">Azul</button>
-        <button data-color="verde">Verde</button>
-        <button data-color="rosa">Rosa</button>
+    <section class="config-section">
+      <h2>Elige tus componentes</h2>
+
+      <div class="option">
+        <label for="cpu">Procesador</label>
+        <select id="cpu">
+          <option value="300">Intel i5 - $300</option>
+          <option value="500">Intel i7 - $500</option>
+          <option value="700">Intel i9 - $700</option>
+        </select>
       </div>
-      <img id="product-image" src="imac-azul.jpg" alt="iMac Azul" />
-    </section>
 
-    <section class="specs">
-      <h3>Especificaciones</h3>
-      <div class="options">
-        <label>Memoria:
-          <select id="memory">
-            <option value="16 GB">16 GB</option>
-            <option value="32 GB">32 GB</option>
-          </select>
-        </label>
-        <label>Almacenamiento:
-          <select id="storage">
-            <option value="256 GB">256 GB</option>
-            <option value="512 GB">512 GB</option>
-          </select>
-        </label>
+      <div class="option">
+        <label for="ram">Memoria RAM</label>
+        <select id="ram">
+          <option value="100">8 GB - $100</option>
+          <option value="180">16 GB - $180</option>
+          <option value="300">32 GB - $300</option>
+        </select>
       </div>
-    </section>
 
-    <section class="summary">
-      <h3>Resumen</h3>
-      <p id="summary-text">Selecciona tus opciones para ver el resumen.</p>
+      <div class="option">
+        <label for="storage">Almacenamiento</label>
+        <select id="storage">
+          <option value="120">512 GB SSD - $120</option>
+          <option value="200">1 TB SSD - $200</option>
+          <option value="350">2 TB SSD - $350</option>
+        </select>
+      </div>
+
+      <div class="option">
+        <label for="gpu">Tarjeta Gráfica</label>
+        <select id="gpu">
+          <option value="250">NVIDIA GTX 1660 - $250</option>
+          <option value="400">NVIDIA RTX 3060 - $400</option>
+          <option value="600">NVIDIA RTX 4070 - $600</option>
+        </select>
+      </div>
+
+      <div class="total">
+        <h3>Precio total: <span id="total-price">$0</span></h3>
+      </div>
+
+      <button id="buy-btn">Comprar ahora</button>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Proyecto Escolar</p>
+    <p>© 2025 Configurador PC. Inspirado en Apple.</p>
   </footer>
 
   <script src="script.js"></script>

@@ -1,41 +1,29 @@
-const colorButtons = document.querySelectorAll(".colors button");
-const productImage = document.getElementById("product-image");
-const memorySelect = document.getElementById("memory");
-const storageSelect = document.getElementById("storage");
-const summaryText = document.getElementById("summary-text");
-const darkToggle = document.getElementById("toggle-dark");
+const cpu = document.getElementById('cpu');
+const ram = document.getElementById('ram');
+const storage = document.getElementById('storage');
+const gpu = document.getElementById('gpu');
+const totalPrice = document.getElementById('total-price');
+const buyBtn = document.getElementById('buy-btn');
 
-const images = {
-  azul: "imac-azul.jpg",
-  verde: "imac-verde.jpg",
-  rosa: "imac-rosa.jpg"
-};
+function updatePrice() {
+  const cpuPrice = parseInt(cpu.value);
+  const ramPrice = parseInt(ram.value);
+  const storagePrice = parseInt(storage.value);
+  const gpuPrice = parseInt(gpu.value);
 
-colorButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    const color = button.dataset.color;
-    productImage.src = images[color];
-    updateSummary();
-  });
-});
-
-memorySelect.addEventListener("change", updateSummary);
-storageSelect.addEventListener("change", updateSummary);
-
-function updateSummary() {
-  const color = [...colorButtons].find(btn => btn.classList.contains("selected"))?.dataset.color || "azul";
-  const memory = memorySelect.value;
-  const storage = storageSelect.value;
-  summaryText.textContent = Has elegido un iMac ${color} con ${memory} de memoria y ${storage} de almacenamiento.;
+  const total = cpuPrice + ramPrice + storagePrice + gpuPrice;
+  totalPrice.textContent = `$${total}`;
 }
 
-colorButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    colorButtons.forEach(b => b.classList.remove("selected"));
-    btn.classList.add("selected");
-  });
+// Evento para actualizar cada vez que cambie una opción
+[cpu, ram, storage, gpu].forEach(select => {
+  select.addEventListener('change', updatePrice);
 });
 
-darkToggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
+// Calcular al cargar la página
+updatePrice();
+
+// Simulación del botón "comprar"
+buyBtn.addEventListener('click', () => {
+  alert(`Gracias por tu compra. Total: ${totalPrice.textContent}`);
 });
