@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #f5f5f7;
+  color: #1d1d1f;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+  background-color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav h1 {
+  margin: 0;
+}
+
+.hero {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(to right, #dbe9f4, #eaf3fc);
+}
+
+.selector, .specs, .summary {
+  padding: 2rem;
+  background-color: #fff;
+  margin: 1rem;
+  border-radius: 8px;
+}
+
+.colors button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #0071e3;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.options select {
+  margin-left: 1rem;
+}
+
+#product-image {
+  display: block;
+  max-width: 300px;
+  margin: 1rem auto;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #eaeaea;
+}
+
+/* Modo oscuro */
+body.dark {
+  background-color: #1d1d1f;
+  color: #f5f5f7;
+}
+
+body.dark header {
+  background-color: #2c2c2e;
+}
+
+body.dark .selector,
+body.dark .specs,
+body.dark .summary {
+  background-color: #2c2c2e;
+}

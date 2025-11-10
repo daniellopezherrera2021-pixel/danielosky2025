@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iMac Azul - Proyecto Escolar</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>iMac Azul</h1>
+      <button id="toggle-dark">🌙</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Chip M4. Rendimiento increíble.</h2>
+      <p>CPU de 8 núcleos, GPU de 8 núcleos, 16 GB de memoria, 256 GB de almacenamiento.</p>
+    </section>
+
+    <section class="selector">
+      <h3>Elige tu color</h3>
+      <div class="colors">
+        <button data-color="azul">Azul</button>
+        <button data-color="verde">Verde</button>
+        <button data-color="rosa">Rosa</button>
+      </div>
+      <img id="product-image" src="imac-azul.jpg" alt="iMac Azul" />
+    </section>
+
+    <section class="specs">
+      <h3>Especificaciones</h3>
+      <div class="options">
+        <label>Memoria:
+          <select id="memory">
+            <option value="16 GB">16 GB</option>
+            <option value="32 GB">32 GB</option>
+          </select>
+        </label>
+        <label>Almacenamiento:
+          <select id="storage">
+            <option value="256 GB">256 GB</option>
+            <option value="512 GB">512 GB</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section class="summary">
+      <h3>Resumen</h3>
+      <p id="summary-text">Selecciona tus opciones para ver el resumen.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Proyecto Escolar</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
